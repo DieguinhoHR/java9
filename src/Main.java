@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         List<Book> allBooks = new ArrayList<>();
 
-        allBooks.add(new Book("O milagra da manhã", "Elrod Hal"));
-        allBooks.add(new Book("A sutil arte de ligar o foda-se", "Manson"));
-        allBooks.add(new Book("Seja foda!", "Carneiro, caio"));
+        allBooks.add(new Book("O milagra da manhã", java.util.Optional.of("Elrod Hal")));
+        allBooks.add(new Book("A sutil arte de ligar o foda-se", java.util.Optional.of("Manson")));
+        allBooks.add(new Book("Seja foda!", java.util.Optional.of("Carneiro, caio")));
 
         allBooks.stream()
                 .forEach(System.out::println);

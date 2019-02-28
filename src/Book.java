@@ -1,8 +1,10 @@
-public class Book {
-    private String name;
-    private String author;
+import java.util.Optional;
 
-    public Book(String name, String author) {
+public class Book {
+    private final String name;
+    private final Optional<String> author;
+
+    public Book(String name, Optional<String> author) {
         this.name = name;
         this.author = author;
     }
@@ -11,23 +13,10 @@ public class Book {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public boolean hasAuthor(String name) {
-        if (author == null) {
-            return false;
-        }
-        return this.author.contains(name);
+        return author
+                .filter(s -> s.contains(name))
+                .isPresent();
     }
 
     @Override
